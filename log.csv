@@ -1,0 +1,8 @@
+timestamp;level;message
+2024-08-24T14:32:20;INFO;System started successfully
+2024-08-30T14:33:15;WARNING;Hard disk space is running low
+2024-08-25T14:35:45;ERROR;Failed to connect to database
+2024-08-30T14:40:00;INFO;User login successful
+2024-08-30T14:42:22;ERROR; File not found
+2024-08-31T14:50:30;WARNING; High memory usage detected
+2024-08-30T15:00:00;INFO;System shutdown initiated
