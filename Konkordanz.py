@@ -1,4 +1,4 @@
-#  18:30
+#  18:30-20:45 
 import sys
 
 def create_concordance(file_path, min_word_length, context_size):
@@ -30,11 +30,18 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         sys.exit(1)
 
+    min_word_length = 3
+    context_size = 1
     input_file = sys.argv[1]
-    if sys.argv[2] == '-w' and sys.argv[4] == '-c':
-        min_word_length = int(sys.argv[3])
-        context_size = int(sys.argv[5])
-    else:
-        sys.exit(1)
-    concordance = create_concordance(input_file, min_word_length=min_word_length, context_size=context_size)
-    print_concordance(concordance)
+    i = 2
+    while i < len(sys.argv):
+        if sys.argv[i] == '-w':
+            min_word_length = int(sys.argv[i + 1])
+            i += 2
+        elif sys.argv[i] == '-c':
+            context_size = int(sys.argv[i + 1])
+            i += 2
+        else:
+            i += 1
+concordance = create_concordance(input_file, min_word_length=min_word_length, context_size=context_size)
+print_concordance(concordance)
