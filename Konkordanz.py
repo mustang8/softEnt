@@ -4,26 +4,27 @@ import sys
 def create_concordance(file_path, min_word_length, context_size):
     dict_concordance = {}
     with open(file_path, 'r', encoding='utf-8') as file:
-        text = file.read()
-        words = text.split()
-        words = [w.lower() for w in words]
-        words = [w.strip('.,!?;:"()') for w in words]
+        for row, line in enumerate(file, start=1):
+            line = line.strip()
+            words = line.split()
+            words = [w.lower() for w in words]
+            words = [w.strip('.,!?;:"()') for w in words]
 
-        for row, word in enumerate(words):
-            if len(word) >= min_word_length:
-                if word not in dict_concordance:
-                    dict_concordance[word] = []
-                start = max(0, row - context_size)
-                end = min(len(words), row + context_size + 1)
-                context = ' '.join(words[start:end])
-                dict_concordance[word].append((row, context))
+            for index, word in enumerate(words):
+                if len(word) >= min_word_length:
+                    if word not in dict_concordance:
+                        dict_concordance[word] = []
+                    start = max(0, index - context_size)
+                    end = min(len(words), index + context_size + 1)
+                    context = ' '.join(words[start:end])
+                    dict_concordance[word].append((row, context))
     return dict_concordance
 
 def print_concordance(concordance):
     for word in sorted(concordance):
         print(f"{word}:")
-        for index, context in concordance[word]:
-            print(f"{' ':4}Zeile {index+1}: {context}")
+        for row, context in concordance[word]:
+            print(f"{' ':4}Zeile {row}: {context}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
