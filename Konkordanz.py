@@ -1,4 +1,3 @@
-#  18:30-20:45 
 import sys
 
 def create_concordance(file_path, min_word_length, context_size):

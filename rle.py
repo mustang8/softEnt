@@ -1,4 +1,3 @@
-# 22:00-22:30
 import sys
 
 def compress_rle (text):
