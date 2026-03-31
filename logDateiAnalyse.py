@@ -32,12 +32,6 @@ def write_logs_to_csv(logs, output_file):
         for timestamp, message in logs.items():
             writer.writerow([timestamp, message])
 
-def print_logs(logs, log_type):
-    print(f"{log_type} Logs:")
-    for timestamp, message in logs.items():
-        print(f"{timestamp}: {message}")
-    print()
-
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         sys.exit(1)
