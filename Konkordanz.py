@@ -1,7 +1,6 @@
 #  18:30
 import sys
 
-
 def create_concordance(file_path, min_word_length, context_size):
     dict_concordance = {}
     with open(file_path, 'r', encoding='utf-8') as file:
