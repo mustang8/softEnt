@@ -29,11 +29,13 @@ def midpoint(p1, p2):
 
 if __name__ == "__main__":
     triangle = Triangle((100, 100), (300, 100), (200, 300))
-    
+    triangleUp = Triangle((500, 300), (700, 300), (600, 100))
+
     img_size = 800
     img = Image.new('RGB', (img_size, img_size), 'white')
     draw = ImageDraw.Draw(img)
     
-    draw_sierpinski(draw, triangle, 3)
+    draw_sierpinski(draw, triangle, 0)
+    draw_sierpinski(draw, triangleUp, 3)
 
     img.show()
